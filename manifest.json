@@ -1,0 +1,22 @@
+{
+  "name": "RT Dev",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description" : "Get DOM elements and and detect CSS bugs",
+  "icons": { "16": "rt.jpg", "48": "rt.jpg", "128": "rt.jpg" },
+  "browser_action": {
+      "default_icon": { "19": "rt.jpg", "38": "rt.jpg" },
+      "default_title": "That's the tool tip",
+      "default_popup": "popup.html"
+  },
+  "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+  },
+  "content_scripts": [{
+      "matches": ["http://*/*", "https://*/*", "file:///*"],
+      "css": ["styles.css"],
+      "js": ["content.js"]
+  }],
+  "devtools_page": "devtools.html"
+}
