@@ -6,10 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <div style="width:200px">
+    <div class="popup-container">
         <button id="button">Toggle grid</button>
-        <div>Верссия RT Style: <span id="ui-version"></span></div>
+        <div class="ui-info">Верссия RT Style: <span id="ui-version"></span></div>
     </div>
     <script type="text/javascript" src="popup.js"></script>
+    <style>
+        #button {
+            border-radius: 10px;
+            border: none;
+            background: #222;
+            box-sizing: border-box;
+            color: #fff;
+            transition: .3s;
+            font-family: sans-serif;
+            padding: 9px 13px;
+            cursor: pointer;
+            font-size: 14px;
+            outline: none;
+        }
+        .popup-container {
+            width: 200px;
+            box-sizing: border-box;
+            padding: 10px 20px;
+        }
+        .ui-info {
+            font-size: 15px;
+            padding-top: 15px;
+        }
+    </style>
 </body>
 </html>
