@@ -1,14 +1,12 @@
-var getUiVers = function() {
-    document.getElementById('button').innerHTML = 'but'
+var getUiVers = function(uiVers) {
+    document.getElementById('ui-version').innerHTML = uiVers
 }
 
 // Send message when push the button
-window.onload = function() {
-    document.getElementById("button").onclick = function() {
-        chrome.extension.sendMessage({
-            type: "color-divs"
-        });
-    }
+document.getElementById("button").onclick = function() {
+    chrome.extension.sendMessage({
+        type: "color-divs"
+    });
 }
 
 // Send message when open popup
@@ -21,8 +19,8 @@ window.onload = function() {
 // Listener
 chrome.extension.onMessage.addListener(function(message, sender, sendResponse) {
     switch(message.type) {
-        case "ui":
-            alert(1212);
+        case "send-ui-version":
+            getUiVers(message.data.myProperty);
         break;
     }
 });
