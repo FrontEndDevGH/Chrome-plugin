@@ -57,7 +57,7 @@ toggleGrid = function() {
         child6.classList.add('rt-col-1')
         child6.classList.add('rt-col-td-1')
         child6.classList.add('demo-col')
-        child6.classList.add('rmd-d-none')
+        child6.classList.add('md-d-none')
         div2.appendChild(child6);
     
     
