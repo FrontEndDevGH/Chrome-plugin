@@ -4,28 +4,16 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
         case "color-divs":
             colorDivs();
         break;
-        case "send-ui-version":
-            setUiVers(request.data.myProperty);
-        break;
         case "get-ui-version":
             getUiVersion();
+        break;
+        case "show-components":
+            getComponents();
         break;
     }
     return true;
 });
- 
-// listening for an event / long-lived connections
-// coming from devtools
-chrome.extension.onConnect.addListener(function (port) {
-    port.onMessage.addListener(function (message) {
-        switch(port.name) {
-            case "color-divs-port":
-                colorDivs();
-            break;
-        }
-    });
-});
- 
+
 // send a message to the content script
 var colorDivs = function() {
     chrome.tabs.getSelected(null, function(tab){
@@ -34,15 +22,14 @@ var colorDivs = function() {
     });
 }
 
-var setUiVers = function(data) {
-    chrome.tabs.getSelected(null, function(tab){
-        chrome.tabs.sendMessage(tab.id, {type: "send-ui-version", data: 'jk'});
-        // setting a badge
-    });
-}
-
 var getUiVersion = function() {
     chrome.tabs.getSelected(null, function(tab){
         chrome.tabs.sendMessage(tab.id, {type: "get-ui-version"});
+    });
+}
+
+var getComponents = function() {
+    chrome.tabs.getSelected(null, function(tab){
+        chrome.tabs.sendMessage(tab.id, {type: "show-components"});
     });
 }
