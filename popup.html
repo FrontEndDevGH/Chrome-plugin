@@ -10,9 +10,93 @@
         <button id="button">Toggle grid</button>
         <div class="ui-info">Верссия RT Style: <span id="ui-version"></span></div>
 
-        <div>Страницы с использованием компонента</div>
-        <button class="show-links-list" id="show-links-list">Показать</button>
-        <div class="links-list" id="links-list"></div>
+        <div class="shearch-option">
+            <div>Поиск компонента на других страницах</div>
+            <div class="select-wrap">
+                <button class="select-widget">Выбрать виджет</button>
+                <button class="select-component">Выбрать ui-kit компонент</button>
+            </div>
+            <div class="widgets-wrap hide">
+                <div class="widgets-block">
+                    <button>banner</button>
+                    <button>bannerForPackage</button>
+                    <button>bannerMainPage</button>
+                    <button>productCards</button>
+                    <button>connectionForm</button>
+                    <button>internetConnection</button>
+                    <button>tvConnection</button>
+                    <button>tvConnectionadditionally</button>
+                    <button>vatcConnection</button>
+                    <button>mvnoCard</button>
+                    <button>tel8800Connetion</button>
+                    <button>smsAdvertisingConnection</button>
+                    <button>cctvConnection</button>
+                    <button>managedWifiConnection</button>
+                    <button>additionalFeatures</button>
+                    <button>connectionFormPopup</button>
+                    <button>legalConnection</button>
+                    <button>miniLegalConnection</button>
+                    <button>mobileInternet</button>
+                    <button>equipmentMobileInternet</button>
+                    <button>relatedServices</button>
+                    <button>Annonce</button>
+                    <button>advice</button>
+                    <button>roamingConnection</button>
+                    <button>roaming</button>
+                    <button>roamingLegal</button>
+                    <button>testPeriod</button>
+                    <button>equipment</button>
+                    <button>packages</button>
+                    <button>profit</button>
+                    <button>headerBusinessDrive</button>
+                    <button>bannerBusinessDrive</button>
+                    <button>howItWork</button>
+                    <button>coverageArea</button>
+                    <button>connectionFormSilverNumber</button>
+                    <button>speakers</button>
+                    <button>movementOnMap</button>
+                    <button>audioConference</button>
+                    <button>saleOffice</button>
+                    <button>eventProgram</button>
+                    <button>headerBusinessDriveService</button>
+                    <button>cardsBusinessDrive</button>
+                    <button>categoryCards</button>
+                    <button>promoInternet</button>
+                    <button>roamingPdfLink</button>
+                    <button>applicationForm</button>
+                    <button>cardsBusinessDriveService</button>
+                    <button>VTBcards</button>
+                    <button>cookieNotification</button>
+                </div>
+                <div class="components-block">
+                    <button>rt-button</button>
+                    <button>rt-row-list</button>
+                    <button>rt-annotation</button>
+                    <button>rt-numeric-list</button>
+                    <button>rt-scroll-tab</button>
+                    <button>rt-tag</button>
+                    <button>rt-space-horizontal</button>
+                    <button>rt-price</button>
+                    <button>rt-tabs-navigation</button>
+                    <button>rt-table</button>
+                    <button>rt-card</button>
+                    <button>rt-product-card</button>
+                    <button>rt-opportunity-block</button>
+                    <button>rtb-popup</button>
+                    <button>rt-youtube</button>
+                    <button>rt-rotating-card-gallery</button>
+                    <button>rt-slide</button>
+                    <button>rt-banner</button>
+                    <button>test-access</button>
+                    <button>rtk-carousel-slide</button>
+                </div>
+            </div>
+        </div>
+        <div class="shearch-result hide">
+            <button class="button-back">Назад</button>
+            <div>Страницы с использованием компонента:</div>
+            <div class="links-list" id="links-list"></div>
+        </div>
     </div>
     <script type="text/javascript" src="popup.js"></script>
     <style>
@@ -30,13 +114,23 @@
             outline: none;
         }
         .popup-container {
-            width: 200px;
+            width: 250px;
             box-sizing: border-box;
             padding: 10px 20px;
         }
         .ui-info {
             font-size: 15px;
             padding-top: 15px;
+        }
+        .component-item {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: block;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .hide {
+            display: none;
         }
     </style>
 </body>

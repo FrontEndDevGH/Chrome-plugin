@@ -8,7 +8,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
             getUiVersion();
         break;
         case "show-components":
-            getComponents();
+            getComponents(request.type, request.elem);
         break;
     }
     return true;
@@ -28,8 +28,8 @@ var getUiVersion = function() {
     });
 }
 
-var getComponents = function() {
+var getComponents = function(type, elem) {
     chrome.tabs.getSelected(null, function(tab){
-        chrome.tabs.sendMessage(tab.id, {type: "show-components"});
+        chrome.tabs.sendMessage(tab.id, {type, elem});
     });
 }
