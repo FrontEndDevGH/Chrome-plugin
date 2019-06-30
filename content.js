@@ -82,7 +82,7 @@ if (styleSheetArr.length) {
 // Listener
 chrome.extension.onMessage.addListener(function (message, sender, sendResponse) {
     switch (message.type) {
-        case "colors-div":
+        case "toggle-grid":
             toggleGrid();
         break;
         case "get-ui-version":

@@ -1,23 +1,20 @@
 // coming from the popup
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
     switch(request.type) {
-        case "color-divs":
-            colorDivs();
+        case "toggle-grid":
+            toggleGrid();
         break;
         case "get-ui-version":
             getUiVersion();
-        break;
-        case "show-components":
-            getComponents(request.type, request.elem);
         break;
     }
     return true;
 });
 
 // send a message to the content script
-var colorDivs = function() {
+var toggleGrid = function() {
     chrome.tabs.getSelected(null, function(tab){
-        chrome.tabs.sendMessage(tab.id, {type: "colors-div", color: "#F00"});
+        chrome.tabs.sendMessage(tab.id, {type: "toggle-grid"});
         // setting a badge
     });
 }
@@ -25,11 +22,5 @@ var colorDivs = function() {
 var getUiVersion = function() {
     chrome.tabs.getSelected(null, function(tab){
         chrome.tabs.sendMessage(tab.id, {type: "get-ui-version"});
-    });
-}
-
-var getComponents = function(type, elem) {
-    chrome.tabs.getSelected(null, function(tab){
-        chrome.tabs.sendMessage(tab.id, {type, elem});
     });
 }
