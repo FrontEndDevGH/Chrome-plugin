@@ -1,4 +1,5 @@
 let isSelectedWidget = Boolean
+let uIVersion = ''
 
 // Sending component for shearch when click
 document.getElementsByClassName('widgets-wrap')[0].addEventListener('click', (e) => {
@@ -41,6 +42,7 @@ document.getElementsByClassName("button-back")[0].onclick = function() {
 
 // Showing ui-kit version
 var getUiVers = function(uiVers) {
+    uIVersion = uiVers
     document.getElementById('ui-version').innerHTML = uiVers
 }
 
@@ -65,6 +67,18 @@ window.onload = function() {
     chrome.extension.sendMessage({
         type: "get-ui-version"
     });
+    if (!uIVersion) {
+        var timerId = setInterval(function() {
+            chrome.extension.sendMessage({
+                type: "get-ui-version"
+            });
+          }, 600);
+          
+          // через 5 сек остановить повторы
+          setTimeout(function() {
+            clearInterval(timerId);
+          }, 10000);
+    }
 }
 
 // Listener
