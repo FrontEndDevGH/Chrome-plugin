@@ -7,15 +7,19 @@
 </head>
 <body>
     <div class="popup-container">
-        <button id="button">Toggle grid</button>
+        <button id="button">Grid</button>
         <div class="ui-info">Верссия RT Style: <span id="ui-version"></span></div>
+        <div class="spinner" id="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
     </div>
     <script type="text/javascript" src="popup.js"></script>
     <style>
         #button {
-            border-radius: 10px;
+            border-radius: 20px;
             border: none;
-            background: #222;
+            background: #70f;
             box-sizing: border-box;
             color: #fff;
             transition: .3s;
@@ -29,10 +33,15 @@
             width: 250px;
             box-sizing: border-box;
             padding: 10px 20px;
+            position: relative;
         }
         .ui-info {
             font-size: 15px;
             padding-top: 15px;
+        }
+        .ui-info span {
+            margin-left: 6px;
+            font-weight: 500;
         }
         .component-item {
             white-space: nowrap;
@@ -43,6 +52,46 @@
         }
         .hide {
             display: none;
+        }
+
+
+        .spinner {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 53px;
+        right: 70px;
+        }
+        .double-bounce1, .double-bounce2 {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #333;
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+        animation: sk-bounce 2.0s infinite ease-in-out;
+        }
+        .double-bounce2 {
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+        }
+
+        @-webkit-keyframes sk-bounce {
+        0%, 100% { -webkit-transform: scale(0.0) }
+        50% { -webkit-transform: scale(1.0) }
+        }
+
+        @keyframes sk-bounce {
+        0%, 100% { 
+            transform: scale(0.0);
+            -webkit-transform: scale(0.0);
+        } 50% { 
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+        }
         }
     </style>
 </body>

@@ -1,11 +1,11 @@
 {
-  "name": "RT Dev",
+  "name": "UI Help",
   "version": "1.0",
   "manifest_version": 2,
-  "description" : "Get DOM elements and and detect CSS bugs",
-  "icons": { "16": "rt.jpg", "48": "rt.jpg", "128": "rt.jpg" },
+  "description" : "Shows the Grid and the RT Style version",
+  "icons": { "16": "icon.png", "48": "icon.png", "128": "icon.png" },
   "browser_action": {
-      "default_icon": { "19": "rt.jpg", "38": "rt.jpg" },
+      "default_icon": { "19": "icon.png", "38": "icon.png" },
       "default_title": "That's the tool tip",
       "default_popup": "popup.html"
   },
@@ -17,6 +17,5 @@
       "matches": ["http://*/*", "https://*/*", "file:///*"],
       "css": ["styles.css"],
       "js": ["content.js"]
-  }],
-  "devtools_page": "devtools.html"
+  }]
 }

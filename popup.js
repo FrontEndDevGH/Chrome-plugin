@@ -4,6 +4,7 @@ let uIVersion = ''
 var getUiVers = function(uiVers) {
     uIVersion = uiVers
     document.getElementById('ui-version').innerHTML = uiVers
+    document.getElementById('spinner').style.display = 'none'
 }
 
 // Send message for get ui-kit version
