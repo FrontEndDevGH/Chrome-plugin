@@ -10,19 +10,23 @@ toggleGrid = function () {
         div.setAttribute('id', 'gridID');
         document.body.appendChild(div);
         div.innerHTML = `
-                        <div class="row">
-                        <div class="rt-col-1 rt-col-td-1 rt-col-md-1 demo-col"></div>
-                        <div class="rt-col-1 rt-col-td-1 rt-col-md-1 demo-col"></div>
-                        <div class="rt-col-1 rt-col-td-1 rt-col-md-1 demo-col"></div>
-                        <div class="rt-col-1 rt-col-td-1 demo-col md-d-none"></div>
-                        <div class="rt-col-1 rt-col-td-1 demo-col md-d-none"></div>
-                        <div class="rt-col-1 rt-col-td-1 demo-col md-d-none"></div>
-                        <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
-                        <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
-                        <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
-                        <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
-                        <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
-                        <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
+                        <div class="grid app-container rt-container grid--active">
+                            <div class="rt-col-12">
+                                <div class="row">
+                                    <div class="rt-col-1 rt-col-td-1 rt-col-md-1 demo-col"></div>
+                                    <div class="rt-col-1 rt-col-td-1 rt-col-md-1 demo-col"></div>
+                                    <div class="rt-col-1 rt-col-td-1 rt-col-md-1 demo-col"></div>
+                                    <div class="rt-col-1 rt-col-td-1 demo-col md-d-none"></div>
+                                    <div class="rt-col-1 rt-col-td-1 demo-col md-d-none"></div>
+                                    <div class="rt-col-1 rt-col-td-1 demo-col md-d-none"></div>
+                                    <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
+                                    <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
+                                    <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
+                                    <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
+                                    <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
+                                    <div class="rt-col-1 demo-col md-d-none td-d-none"></div>
+                                </div>
+                            </div>
                         </div>
                         `
        
@@ -47,7 +51,8 @@ var getUiVersion = function () {
 // Getting relative styles.css URL
 let styleSheetArr = [...document.getElementsByTagName('link')]
 styleSheetArr = styleSheetArr.filter((item) => {
-    if (item.getAttribute('href').indexOf('styles.css') !== -1) {
+    let itemHref = item.getAttribute('href')
+    if ((itemHref.indexOf('ui.css') !== -1) || (itemHref.indexOf('styles.css') !== -1)) {
         return true
     }
     return false
@@ -65,7 +70,7 @@ var setUIversion = function (response) {
 // Creating full styles.css URL
 
 if (styleSheetArr.length) {
-    let styleURL = styleSheetArr[0].baseURI + styleSheetArr[0].getAttribute('href')
+    let styleURL = styleSheetArr[0].href
 
     // Send request to get stylesheet
     const Http = new XMLHttpRequest();
